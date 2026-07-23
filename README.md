@@ -1,58 +1,104 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="[INSERT_LINK_TO_YOUR_GITHUB_REPO]">
+    <img src="public/README/image/mini-martjpeg" alt="Mini Mart Logo" width="300">
+  </a>
 </p>
 
-## About Laravel
+<h1 align="center">🚀 Mini Mart | سیستم فروشگاهی مدرن و ماژولار</h1>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-13.x-red?style=for-the-badge&logo=laravel" alt="Laravel 13" />
+  <img src="https://img.shields.io/badge/Livewire-4.x-pink?style=for-the-badge&logo=livewire" alt="Livewire 4" />
+  <img src="https://img.shields.io/badge/PHP-8.2+-blue?style=for-the-badge&logo=php" alt="PHP 8.2+" />
+  <img src="https://img.shields.io/badge/Architecture-Modular-blueviolet?style=for-the-badge" alt="Modular Architecture" />
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<div dir="rtl">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📖 درباره Mini Mart
 
-## Learning Laravel
+**Mini Mart** یک پلتفرم فروشگاهی آنلاین مدرن است که با استفاده از **Laravel 13** و **Livewire 4** توسعه داده شده است.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+این پروژه با تمرکز بر اصول مهندسی نرم‌افزار مانند **Clean Code**، رعایت اصول **SOLID** و استفاده از **Design Patterns** طراحی شده تا بستری قابل توسعه، نگهداری‌پذیر و مقیاس‌پذیر برای کسب‌وکارهای مختلف فراهم کند.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+معماری ماژولار Mini Mart باعث شده هر بخش از سیستم مانند کاربران، محصولات، سفارشات و سایر قابلیت‌ها به صورت مستقل توسعه و مدیریت شود.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+# ✨ ویژگی‌های کلیدی
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 🛠️ سیستم مدیریت (Admin Panel)
 
-```bash
-composer require laravel/boost --dev
+پنل مدیریتی قدرتمند و واکنش‌گرا برای مدیریت کامل فروشگاه:
 
-php artisan boost:install
-```
+- **مدیریت کاربران و احراز هویت OTP**
+    - ثبت‌نام و ورود امن با رمز یک‌بار مصرف.
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+- **مدیریت دسته‌بندی‌ها و ویژگی‌ها**
+    - ایجاد دسته‌بندی‌های مختلف همراه با ویژگی‌های اختصاصی محصولات.
 
-## Contributing
+- **سیستم نقش‌ها و مجوزها (Roles & Permissions)**
+    - مدیریت سطح دسترسی کاربران مدیریتی.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **مدیریت محصولات**
+    - ایجاد، ویرایش و مدیریت محصولات همراه با گالری تصاویر.
 
-## Code of Conduct
+- **ارسال پیام‌های گروهی**
+    - ارسال اعلان‌ها و اطلاع‌رسانی به کاربران.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **مدیریت سفارشات**
+    - پیگیری وضعیت سفارش‌ها و تولید فاکتور (Invoice).
 
-## Security Vulnerabilities
+-
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 🛒 بخش فروشگاه و تجربه خرید
 
-## License
+با استفاده از Livewire تعاملات کاربری به صورت زنده و بدون نیاز به Reload صفحه انجام می‌شوند:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- نمایش محصولات با ساختار مرتب و فیلترهای کاربردی.
+- بخش محصولات ویژه، تخفیفی و پیشنهادی.
+- دسته‌بندی‌های هوشمند برای دسترسی سریع‌تر.
+- سبد خرید پویا (Dynamic Cart).
+- اتصال به درگاه پرداخت.
+- جستجوی سریع و پیشرفته محصولات.
+
+---
+
+# 🧬 معماری و استانداردهای توسعه
+
+Mini Mart بر اساس استانداردهای مدرن توسعه نرم‌افزار طراحی شده است:
+
+- ✅ **Modular Architecture**
+    - تقسیم سیستم به ماژول‌های مستقل مانند User، Product و Order.
+
+- ✅ **SOLID Principles**
+    - کاهش وابستگی‌ها و افزایش انعطاف‌پذیری کد.
+
+- ✅ **Clean Code**
+    - رعایت استانداردهای کدنویسی تمیز و PSR-12.
+
+- ✅ **Design Patterns**
+    - استفاده از الگوهایی مانند Repository Pattern و Service Layer برای جداسازی منطق کسب‌وکار.
+
+- ✅ **Git Version Control**
+    - مدیریت نسخه‌ها با Git و توسعه پروژه در GitHub.
+
+---
+
+</div>
+
+## 🛠️ Tech Stack
+
+| بخش | تکنولوژی |
+| :--- | :--- |
+| Backend Framework | Laravel 13.x |
+| Frontend Framework | Livewire 4.x |
+| Programming Language | PHP 8.2+ |
+| Database | MySQL / PostgreSQL |
+| Dependency Manager | Composer & NPM |
+| Version Control | Git & GitHub |
+
+<div dir="rtl">
+
+---
+
