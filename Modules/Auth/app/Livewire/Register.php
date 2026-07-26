@@ -108,7 +108,6 @@ class Register extends Component
 
     }
 
-
     public function decrementTimer(): void
     {
 
