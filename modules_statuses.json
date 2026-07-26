@@ -1,4 +1,7 @@
 {
     "Panel": true,
-    "Dashboard": true
+    "Dashboard": true,
+    "Athu": true,
+    "Auth": true,
+    "User": true
 }

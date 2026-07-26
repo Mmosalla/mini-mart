@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\User;
-
+use Modules\User\Models\User;
 return [
 
     /*
