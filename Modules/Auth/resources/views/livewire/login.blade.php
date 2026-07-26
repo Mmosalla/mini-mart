@@ -23,7 +23,7 @@
             @enderror
         </div>
         <div class="form-group d-sm-flex justify-content-between text-left mb-4">
-            <a class="d-block mt-2 mt-sm-0 line-height-28" href="recover-password.html">بازنشانی رمز عبور</a>
+            <a class="d-block mt-2 mt-sm-0 line-height-28" href="{{route('reset_password')}}">بازنشانی رمز عبور</a>
         </div>
         <buttonn wire:click.prevent="login" class="btn btn-primary btn-block">ورود</buttonn>
         <hr>
