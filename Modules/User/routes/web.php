@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\User\Http\Controllers\UserController;
+use Modules\User\Livewire\UserList;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('users', UserController::class)->names('user');
+Route::prefix('/admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/users' , UserList::class)->name('admin.users');
 });
+
+
