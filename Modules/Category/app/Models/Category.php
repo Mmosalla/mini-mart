@@ -1,0 +1,40 @@
+<?php
+
+namespace Modules\Category\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+// use Modules\Category\Database\Factories\CategoryFactory;
+
+class Category extends Model
+{
+    use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     */
+    protected $fillable = [
+        'name',
+        'slug',
+        'parent_id',
+        'image',
+        'status'
+    ];
+
+    public function childCategory()
+    {
+        return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+
+    public function parentCategory(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'parent_id', 'id')->withDefault(['name' => 'دسته بندی اصلی']);
+    }
+
+    // protected static function newFactory(): CategoryFactory
+    // {
+    //     // return CategoryFactory::new();
+    // }
+}

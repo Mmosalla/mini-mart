@@ -3,5 +3,6 @@
     "Dashboard": true,
     "Athu": true,
     "Auth": true,
-    "User": true
+    "User": true,
+    "Category": true
 }

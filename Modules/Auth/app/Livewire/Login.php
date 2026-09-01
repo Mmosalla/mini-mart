@@ -30,7 +30,7 @@ class Login extends Component
             ]);
         }
         session()->regenerate();
-        $this->redirect(route('admin.dashboard'));
+       return $this->redirect(route('admin.dashboard'));
     }
     #[Layout('auth::components.layouts.master'), Title('ورود')]
     public function render(): View

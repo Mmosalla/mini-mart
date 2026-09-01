@@ -91,7 +91,7 @@
                 حساب کاربری دارید؟
             </p>
 
-            <a href="login.html" class="btn btn-outline-light btn-sm">
+            <a href="{{route('login')}}" class="btn btn-outline-light btn-sm">
                 وارد شوید!
             </a>
         </form>
