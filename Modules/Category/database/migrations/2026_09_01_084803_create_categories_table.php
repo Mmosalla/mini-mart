@@ -16,8 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->unsignedBigInteger('parent_id')->default(0);
-            $table->string('image')->nullable();
+            $table->unsignedBigInteger('parent_id')->default(0)->nullable();
             $table->string('status')->default(CategoryStatus::Inactive->value);
             $table->timestamps();
         });

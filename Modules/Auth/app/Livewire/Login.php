@@ -13,14 +13,16 @@ class Login extends Component
 {
     public $username;
     public $password;
+
     protected $rules = [
         'username' => 'required',
         'password' => 'required',
     ];
 
-    public function login(): \Illuminate\Http\RedirectResponse
+    public function login()
     {
         $this->validate();
+
         if (!Auth::attempt([
             'name' => $this->username,
             'password' => $this->password,
@@ -29,10 +31,14 @@ class Login extends Component
                 'username' => 'نام کاربری یا رمز عبور اشتباه است.',
             ]);
         }
+
         session()->regenerate();
-       return $this->redirect(route('admin.dashboard'));
+
+        $this->redirect(route('admin.dashboard'));
     }
-    #[Layout('auth::components.layouts.master'), Title('ورود')]
+
+    #[Layout('auth::components.layouts.master')]
+    #[Title('ورود')]
     public function render(): View
     {
         return view('auth::livewire.login');

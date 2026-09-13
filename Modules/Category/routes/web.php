@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Category\Http\Controllers\CategoryController;
+use Modules\Category\Livewire\CategoryList;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('categories', CategoryController::class)->names('category');
+Route::prefix('/admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/categories', CategoryList::class)->name('category');
 });
