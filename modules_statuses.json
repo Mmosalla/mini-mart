@@ -4,5 +4,6 @@
     "Athu": true,
     "Auth": true,
     "User": true,
-    "Category": true
+    "Category": true,
+    "Product": true
 }
