@@ -17,10 +17,10 @@ return new class extends Migration {
             $table->unsignedBigInteger('price');
             $table->unsignedInteger('discount')->default(0);
             $table->longText('short_description')->nullable();
-            $table->string('status')->default(\Modules\Product\Enums\ProductEnum::Active->value);
+            $table->string('status')->default(\Modules\Product\Enums\ProductEnum::Draft->value);
             $table->string('image')->nullable();
             $table->string('brand')->nullable();
-            $table->unsignedBigInteger('view');
+            $table->unsignedBigInteger('view')->default(0);
             $table->timestamps();
         });
     }

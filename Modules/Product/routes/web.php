@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Product\Http\Controllers\ProductController;
+use Modules\Product\Livewire\ProductList;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('products', ProductController::class)->names('product');
-});
+Route::middleware(['auth' , 'verified'])
+    ->prefix('admin')
+    ->get('/product_management' , ProductList::class)->name('product-management');
