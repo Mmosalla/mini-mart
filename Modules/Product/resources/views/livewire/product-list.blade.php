@@ -1,3 +1,4 @@
+@php use Modules\Product\Enums\ProductEnum; @endphp
 <main class="main-content">
     <style>
         .btn-add-product {
@@ -22,9 +23,15 @@
 
         /* گرادیان متحرک */
         @keyframes gradientMove {
-            0%   { background-position: 0% 50%; }
-            50%  { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* افکت درخشش (Shimmer) */
@@ -88,9 +95,15 @@
         }
 
         @keyframes pulseGlow {
-            0%   { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.5); }
-            70%  { box-shadow: 0 0 0 14px rgba(139, 92, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.5);
+            }
+            70% {
+                box-shadow: 0 0 0 14px rgba(139, 92, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+            }
         }
 
         /* ریسپانسیو */
@@ -99,9 +112,11 @@
                 padding: 8px 16px 8px 12px;
                 font-size: 13px;
             }
+
             .btn-add-text {
                 display: none;
             }
+
             .btn-add-icon {
                 width: 24px;
                 height: 24px;
@@ -110,7 +125,7 @@
     </style>
     <style>
         .upload-progress {
-            width: 0%;
+            width: 100%;
             height: 8px;
             margin-top: 10px;
             background: #e9ecef;
@@ -135,22 +150,23 @@
                 @if($create_mode)
                     <h4 class="card-title">افزودن محصول جدید</h4>
                 @elseif($update_mode)
-                    <h4 class="card-title">ویرایش محصو </h4>
+                    <h4 class="card-title">ویرایش محصول </h4>
                 @endif
                 <form>
-
                     <!-- ردیف ۱: نام + برند -->
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label class="col-form-label">نام محصول</label>
-                            <input wire:model="name" type="text" class="form-control" name="name" placeholder="نام محصول را وارد کنید">
+                            <input wire:model="name" type="text" class="form-control" name="name"
+                                   placeholder="نام محصول را وارد کنید">
                             @error('name')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="col-form-label">برند محصول</label>
-                            <input wire:model="brand" type="text" class="form-control" name="brand" placeholder="برند محصول را وارد کنید">
+                            <input wire:model="brand" type="text" class="form-control" name="brand"
+                                   placeholder="برند محصول را وارد کنید">
                         </div>
                     </div>
 
@@ -164,7 +180,8 @@
                                     <option value="{{$key}}">{{$value}}</option>
                                 @endforeach
                             </select>
-                            <small class="text-muted">برای انتخاب چندگانه، کلید Ctrl (ویندوز) یا Cmd (مک) را نگه دارید.</small>
+                            <small class="text-muted">برای انتخاب چندگانه، کلید Ctrl (ویندوز) یا Cmd (مک) را نگه
+                                دارید.</small>
                         </div>
                     </div>
 
@@ -172,14 +189,16 @@
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label class="col-form-label">قیمت اصلی محصول (تومان)</label>
-                            <input wire:model="price" type="text" class="form-control" name="price" placeholder="مثلاً ۱,۲۰۰,۰۰۰">
+                            <input wire:model="price" type="text" class="form-control" name="price"
+                                   placeholder="مثلاً ۱,۲۰۰,۰۰۰">
                             @error('name')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="col-form-label">تخفیف محصول (٪)</label>
-                            <input wire:model="discount" type="number" class="form-control" name="discount" min="0" max="100" placeholder="مثلاً 15">
+                            <input wire:model="discount" type="number" class="form-control" name="discount" min="0"
+                                   max="100" placeholder="مثلاً 15">
                         </div>
                     </div>
 
@@ -195,14 +214,15 @@
 
                         <div class="col-md-12 mb-3">
                             <label class="col-form-label">عکس محصول</label>
-                            <input wire:ignore wire:model="image" type="file" class="form-control-file" name="image" id="productImage">
+                            <input wire:ignore wire:model="image" type="file" class="form-control-file" name="image"
+                                   id="productImage">
 
-                            <div  class="upload-progress">
-                                <div x-bind:style="`width:${progress}%`"  class="upload-progress-bar" id="uploadBar"  ></div>
+                            <div class="upload-progress">
+                                <div x-bind:style="`width:${progress}%`" class="upload-progress-bar"
+                                     id="uploadBar"></div>
                             </div>
                             <div class="upload-info">
-                                {{--                            <span id="uploadText">آماده بارگذاری</span>--}}
-                                <span id="uploadPercent" x-text="`${progress}%`" ></span>
+                                <span id="uploadPercent" x-text="`${progress}%`"></span>
                             </div>
                         </div>
                     </div>
@@ -211,7 +231,8 @@
                     <div class="form-row">
                         <div class="col-md-12 mb-3">
                             <label class="col-form-label">توضیحات محصول</label>
-                            <textarea wire:model="short_description" class="form-control" name="description" rows="4" placeholder="توضیحات کامل محصول را اینجا بنویسید..."></textarea>
+                            <textarea wire:model="short_description" class="form-control" name="description" rows="4"
+                                      placeholder="توضیحات کامل محصول را اینجا بنویسید..."></textarea>
                         </div>
                     </div>
 
@@ -219,23 +240,23 @@
                     <div class="form-row">
                         @if($create_mode)
                             <div class="col-md-12">
-                                <button wire:click.prevent="CreateProduct"  class="btn btn-success btn-uppercase">
+                                <button wire:click.prevent="CreateProduct" class="btn btn-success btn-uppercase">
                                     <i class="ti-check-box m-r-5"></i> ذخیره محصول
                                 </button>
                             </div>
                             <div style="margin-top: 30px" class="col-md-12">
-                                <button  wire:click.prevent="cancelCreateProduct"  class="btn btn-danger btn-uppercase">
+                                <button wire:click.prevent="cancelCreateProduct" class="btn btn-danger btn-uppercase">
                                     <i class="ti-close m-r-5"></i> انصراف
                                 </button>
                             </div>
                         @elseif($update_mode)
                             <div class="col-md-12">
-                                <button wire:click.prevent="UpdateProduct"  class="btn btn-success btn-uppercase">
+                                <button wire:click.prevent="UpdateProduct" class="btn btn-info btn-uppercase">
                                     <i class="ti-check-box m-r-5"></i> ویراش محصول
                                 </button>
                             </div>
                             <div style="margin-top: 30px" class="col-md-12">
-                                <button  wire:click.prevent="cancelUpdateProduct"  class="btn btn-danger btn-uppercase">
+                                <button wire:click.prevent="cancelUpdateProduct" class="btn btn-danger btn-uppercase">
                                     <i class="ti-close m-r-5"></i> انصراف
                                 </button>
                             </div>
@@ -247,11 +268,12 @@
         </div>
     @endif
 
-    @if($update_mode === false || $create_mode === false )
+    @if($form_mode === true  )
         <div class="d-flex align-items-center mb-3 flex-wrap">
             <h4 class="card-title mb-0 mr-auto">لیست محصولات</h4>
             <div class="ml-auto d-flex align-items-center" style="gap: 10px;">
-                <input type="text" class="form-control form-control-sm" placeholder="جستجو..." style="width:220px;">
+                <input wire:model="search" @keyup.enter="$wire.searchData" type="text"
+                       class="form-control form-control-sm" placeholder="جستجو..." style="width:220px;">
                 <!-- دکمه افزودن محصول -->
                 <button wire:click.prevent="CreateMode" type="button" class="btn-add-product">
             <span class="btn-add-icon">
@@ -264,92 +286,80 @@
         <!-- ===== کارت جدول محصولات ===== -->
         <div style="border-radius: 30px" class="card">
             <div class="card-body">
-                <div class="d-flex align-items-center mb-3 flex-wrap">
-                    <h4 class="card-title mb-0 mr-auto">لیست محصولات</h4>
-                    <div class="ml-auto">
-                        <input type="text" class="form-control form-control-sm" placeholder="جستجو..." style="width:220px;">
-                    </div>
-                </div>
-
-                <div class="table overflow-auto" tabindex="8">
+                <div style="border-radius: 5px" class="table overflow-auto" tabindex="8">
                     <table class="table table-striped table-hover">
                         <thead class="thead-light">
                         <tr>
                             <th class="text-center align-middle text-primary">ردیف</th>
                             <th class="text-center align-middle text-primary">عکس</th>
                             <th class="text-center align-middle text-primary">نام محصول</th>
-                            <th class="text-center align-middle text-primary">قیمت</th>
+                            <th class="text-center align-middle text-primary">قیمت(با احتساب تخفیف)</th>
                             <th class="text-center align-middle text-primary">تاریخ ایجاد</th>
                             <th class="text-center align-middle text-primary">وضعیت</th>
                             <th class="text-center align-middle text-primary">عملیات</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- ردیف نمونه ۱ -->
-                        <tr>
-                            <td class="text-center align-middle">۱</td>
-                            <td class="text-center align-middle">
-                                <img src="assets/media/image/avatar.png" alt="product" class="table-avatar">
-                            </td>
-                            <td class="text-center align-middle">هدفون بی‌سیم</td>
-                            <td class="text-center align-middle">۲,۵۰۰,۰۰۰ تومان</td>
-                            <td class="text-center align-middle">۱۴۰۵/۰۱/۱۵</td>
-                            <td class="text-center align-middle">
-                                <button type="button" class="status-badge">فعال</button>
-                            </td>
-                            <td class="text-center align-middle">
-                                <button class="btn btn-outline-info btn-action" title="ویرایش">
-                                    <i class="ti-pencil"></i>
-                                </button>
-                                <button class="btn btn-outline-primary btn-action" title="مشاهده جزئیات" data-toggle="modal" data-target="#productModal">
-                                    <i class="ti-eye"></i>
-                                </button>
-                                <button class="btn btn-outline-danger btn-action" title="حذف">
-                                    <i class="ti-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <!-- ردیف نمونه ۲ -->
-                        <tr>
-                            <td class="text-center align-middle">۲</td>
-                            <td class="text-center align-middle">
-                                <img src="assets/media/image/avatar.png" alt="product" class="table-avatar">
-                            </td>
-                            <td class="text-center align-middle">کیف چرمی</td>
-                            <td class="text-center align-middle">۱,۲۰۰,۰۰۰ تومان</td>
-                            <td class="text-center align-middle">۱۴۰۵/۰۱/۱۰</td>
-                            <td class="text-center align-middle">
-                                <button type="button" class="status-badge">غیرفعال</button>
-                            </td>
-                            <td class="text-center align-middle">
-                                <button class="btn btn-outline-info btn-action"><i class="ti-pencil"></i></button>
-                                <button class="btn btn-outline-primary btn-action" data-toggle="modal" data-target="#productModal"><i class="ti-eye"></i></button>
-                                <button class="btn btn-outline-danger btn-action"><i class="ti-trash"></i></button>
-                            </td>
-                        </tr>
-                        <!-- ردیف نمونه ۳ -->
-                        <tr>
-                            <td class="text-center align-middle">۳</td>
-                            <td class="text-center align-middle">
-                                <img src="assets/media/image/avatar.png" alt="product" class="table-avatar">
-                            </td>
-                            <td class="text-center align-middle">ساعت هوشمند</td>
-                            <td class="text-center align-middle">۴,۸۰۰,۰۰۰ تومان</td>
-                            <td class="text-center align-middle">۱۴۰۵/۰۱/۱۲</td>
-                            <td class="text-center align-middle">
-                                <button type="button" class="status-badge">فعال</button>
-                            </td>
-                            <td class="text-center align-middle">
-                                <button class="btn btn-outline-info btn-action"><i class="ti-pencil"></i></button>
-                                <button class="btn btn-outline-primary btn-action" data-toggle="modal" data-target="#productModal"><i class="ti-eye"></i></button>
-                                <button class="btn btn-outline-danger btn-action"><i class="ti-trash"></i></button>
-                            </td>
-                        </tr>
+                        @forelse($this->Products as $index => $product)
+                            <tr>
+                                <td class="text-center align-middle">{{$this->Products->firstItem() + $index}}</td>
+                                <td class="text-center align-middle">
+                                    <img src="{{url('Images/Products/'.$product->image)}}" alt="product"
+                                         class="table-avatar">
+                                </td>
+                                <td class="text-center align-middle">{{$product->name}}</td>
+                                <td class="text-center align-middle">
+                                    {{number_format( $product->price - ($product->price * $product->discount / 100))}}
+                                    تومان
+                                </td>
+                                <td class="text-center align-middle">{{\Hekmatinasser\Verta\Verta::instance($product->created_at)->formatJalaliDate()}}</td>
+                                <td class="text-center align-middle">
+                                    @if($product->status === ProductEnum::Draft->value)
+                                        <button
+                                            wire:click="changeStatus({{ $product->id }}, '{{ ProductEnum::Active->value }}')"
+                                            type="button" class="status-badge btn btn-secondary">پیش فرض
+                                        </button>
+                                    @elseif($product->status === ProductEnum::Inactive->value)
+                                        <button
+                                            wire:click="changeStatus({{ $product->id }}, '{{ ProductEnum::Draft->value }}')"
+                                            type="button" class="status-badge btn btn-danger">غیر فعال
+                                        </button>
+                                    @elseif($product->status === ProductEnum::Active->value)
+                                        <button
+                                            wire:click="changeStatus({{ $product->id }}, '{{ ProductEnum::Inactive->value }}')"
+                                            type="button" class="status-badge btn btn-success">فعال
+                                        </button>
+                                    @endif
+                                </td>
+                                <td class="text-center align-middle">
+                                    <button wire:click.prevent="EditProduct({{$product->id}})"
+                                            class="btn btn-outline-info btn-action" title="ویرایش">
+                                        <i class="ti-pencil"></i>
+                                    </button>
+                                    <button wire:click.prevent="ShowDetailProduct({{$product_id}})"
+                                            class="btn btn-outline-primary btn-action" title="مشاهده جزئیات"
+                                            data-toggle="modal" data-target="#productModal">
+                                        <i class="ti-eye"></i>
+                                    </button>
+                                    <button wire:click="$dispatch('delete-product',{product_id:{{$product->id}}})"
+                                            class="btn btn-outline-danger btn-action" title="حذف">
+                                        <i class="ti-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7" class="text-center py-4">
+                                    😑نتیجه‌ای یافت نشد😑
+                                </td>
+                            </tr>
+                        @endforelse
                         </tbody>
                     </table>
 
-                    <div class="pagination pagination-rounded pagination-sm d-flex justify-content-center" style="margin: 40px !important;">
-                        <!-- صفحه‌بندی -->
+                    <div class="pagination pagination-rounded pagination-sm d-flex justify-content-center"
+                         style="margin: 40px !important;">
+                        {{$this->Products->links()}}
                     </div>
                 </div>
             </div>
@@ -366,7 +376,8 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-4 text-center">
-                                <img src="assets/media/image/avatar.png" alt="product" class="img-fluid rounded mb-3" style="max-width: 200px;">
+                                <img src="assets/media/image/avatar.png" alt="product" class="img-fluid rounded mb-3"
+                                     style="max-width: 200px;">
                             </div>
                             <div class="col-md-8">
                                 <h5>نام محصول</h5>
@@ -392,6 +403,41 @@
 
 @push('scripts')
     <script>
+        Livewire.on('delete-product', (event) => {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: "btn btn-success",
+                    cancelButton: "btn btn-danger"
+                },
+                buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+                title: "آیا حذف را تایید میکنید؟",
+                icon: "warning",
+                text: "با حذف این محصول، آن به طور دائم حذف خواهد شد و دیگر قابل دسترسی و بازیابی نخواهد بود. آیا از حذف اطمینان دارید؟",
+                showCancelButton: true,
+                confirmButtonText: "بله",
+                cancelButtonText: "خیر",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('destroyProduct', {product_id: event.product_id})
+                    swalWithBootstrapButtons.fire({
+                        title: "حذف با موفقیت انجام شد!",
+                        icon: "success"
+                    });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        title: "حذف  لغو شد",
+                        icon: "error"
+                    });
+                }
+            });
+
+        })
         Livewire.on('productCreated', () => {
             const toast = window.Swal.mixin({
                 toast: true,
@@ -407,7 +453,7 @@
                 padding: '2em',
             });
         });
-        Livewire.on('productCreated', () => {
+        Livewire.on('cancelCreateProduct', () => {
             const toast = window.Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -418,7 +464,37 @@
 
             toast.fire({
                 icon: 'warning',
-                title: 'ویرایش محصول لغو شد!',
+                title: 'ساخت محصول لغو شد!',
+                padding: '2em',
+            });
+        });
+        Livewire.on('statusChanged', () => {
+            const toast = window.Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                padding: '2em',
+            });
+
+            toast.fire({
+                icon: 'success',
+                title: 'وضعیت با موفقیت تغییر کرد',
+                padding: '2em',
+            });
+        });
+        Livewire.on('UpdateProductCanceled', () => {
+            const toast = window.Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                padding: '2em',
+            });
+
+            toast.fire({
+                icon: 'warning',
+                title: 'ویرایش محصول لفو شد!',
                 padding: '2em',
             });
         });
